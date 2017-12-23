@@ -10,10 +10,10 @@ As of now the list only contains diffs from `idc.py`.
 ## Notes
 `None` indcate names that I was unable to classify automatically or quickly. Most of the changes appear to make idapython be more Pythonic in naming conventions. I have yet to upgrade to 7.0 but hoping this page will help others. 
 
-# Contribute 
+## Contribute 
 The table was generated using the script `generate_table.py`. To add rows please append changes to the end of the list as `("old", "new")`. Thanks. 
 
-# Yolo IDAPython6 to IDAPython7
+### Yolo IDAPython6 to IDAPython7
 
 The list in `generate_table.py` can be used to do a search and replace for a crude update from IDAPython6 to IDAPython7. The buckshot approach is probaby not the best approach. Once I have more of the old and new keyword changes I'll create a parser for recommending change to old scripts.  
 

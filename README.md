@@ -13,6 +13,29 @@ As of now the list only contains diffs from `idc.py`.
 # Contribute 
 The table was generated using the script `generate_table.py`. To add rows please append changes to the end of the list as `("old", "new")`. Thanks. 
 
+# Yolo IDAPython6 to IDAPython7
+
+The list in `generate_table.py` can be used to do a search and replace for a crude update from IDAPython6 to IDAPython7. The buckshot approach is probaby not the best approach. Once I have more of the old and new keyword changes I'll create a parser for recommending change to old scripts.  
+
+```
+import re
+import sys 
+import os 
+
+def run():
+    api_list = load_apis()
+    old_script = open(sys.argv[1], "r").read()
+    for item in api_list:
+        old_name, new_name = item
+        if old_name and new_name:
+            old_script = old_script.replace(old_name, new_name)
+    o = open(sys.argv[1] + ".new", "w")
+    o.write(old_script)
+    o.close()
+    
+run() 
+```
+
 ## Old vs New
 
 | Old           | New IDAPython 7+     |

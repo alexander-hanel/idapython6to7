@@ -274,7 +274,7 @@ def load_apis():
         ("CompileEx", None),
         ("SaveBase", "save_database"),
         ("ValidateNames", "validate_idb_names"),
-        ("Exec", "qexit"),
+        ("Exit", "qexit"),
         ("Sleep", "qsleep"),
         ("RunPlugin", "load_and_run_plugin"),
         ("ApplySig", "plan_to_apply_idasgn"),
@@ -511,11 +511,11 @@ def load_apis():
         ("GetProcessName", None),
         ("GetThreadId", None),
         ("GetCurrentThreadId", None),
-        ("GetEventBptHardwareEa", None),
-        ("GetEventExceptionCode", None),
-        ("GetEventExceptionEa", None),
+        ("GetEventBptHardwareEa", "get_event_bpt_hea"),
+        ("GetEventExceptionCode", "get_event_exc_code"),
+        ("GetEventExceptionEa", "get_event_exc_ea"),
         ("CanExceptionContinue", None),
-        ("GetEventExceptionInfo", None),
+        ("GetEventExceptionInfo", "get_event_exc_info"),
         ("GetDebuggerEventCondition", None),
         ("SetDebuggerEventCondition", "set_debugger_event_cond"),
         ("SetBptCndEx", "set_bpt_cond"),
@@ -575,8 +575,28 @@ def load_apis():
         ("SegDefReg", None),
         ("Comment", None),
         ("RptCmt", None),
-        ("isEnabled", None)
-        # end of changes for idc.py
+        ("isEnabled", None),
+		# update 20171224
+		("AutoMark2","auto_mark_range"),
+		(None, "get_wide_byte"),
+		("", "calc_gtn_flags"),
+		("", "o_fpreg_arm"),
+		("", "o_cond"),
+		("ASCSTR_C", "STRTYPE_C"),
+		("ASCSTR_PASCAL", "STRTYPE_PASCAL"),
+		("ASCSTR_LEN2", "STRTYPE_LEN2"),
+		("ASCSTR_UNICODE", None),
+		("ASCSTR_LEN4", "STRTYPE_LEN4"),
+		("ASCSTR_ULEN2", None),
+		("ASCSTR_ULEN4", None),
+		("ASCSTR_LAST", None),
+		(None, "STRTYPE_C_16"),
+		(None, "STRTYPE_LEN2_16"),
+		(None, "STRTYPE_LEN4_16"),
+		("startEA","start_ea"),
+		("endEA","end_ea"),
+		(None, "get_fixup_target_flags")
+s for idc.py
         ]
     return new_old_apis
 

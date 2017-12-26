@@ -17,6 +17,12 @@ The table was generated using the script `ida6toidapy7.py`. To add rows please a
 
 The script `ida6toidapy7.py` can be used to search and replace API names from IDAPython6 to IDAPython7. The approach is crude but it has been reported to work. Once I do some more research I'll figure out a cleaner way to update the code. 
 
+```
+python ida6toidapy7.py oldscript.py 
+
+# to generate the table below
+python ida6toidapy7.py
+```
 
 ## Old vs New
 

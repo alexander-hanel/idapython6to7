@@ -576,27 +576,27 @@ def load_apis():
         ("Comment", None),
         ("RptCmt", None),
         ("isEnabled", None),
-		# update 20171224
-		("AutoMark2","auto_mark_range"),
-		(None, "get_wide_byte"),
-		("", "calc_gtn_flags"),
-		("", "o_fpreg_arm"),
-		("", "o_cond"),
-		("ASCSTR_C", "STRTYPE_C"),
-		("ASCSTR_PASCAL", "STRTYPE_PASCAL"),
-		("ASCSTR_LEN2", "STRTYPE_LEN2"),
-		("ASCSTR_UNICODE", None),
-		("ASCSTR_LEN4", "STRTYPE_LEN4"),
-		("ASCSTR_ULEN2", None),
-		("ASCSTR_ULEN4", None),
-		("ASCSTR_LAST", None),
-		(None, "STRTYPE_C_16"),
-		(None, "STRTYPE_LEN2_16"),
-		(None, "STRTYPE_LEN4_16"),
-		("startEA","start_ea"),
-		("endEA","end_ea"),
-		(None, "get_fixup_target_flags")
-s for idc.py
+	# update 20171224
+	("AutoMark2","auto_mark_range"),
+	(None, "get_wide_byte"),
+	("", "calc_gtn_flags"),
+	("", "o_fpreg_arm"),
+	("", "o_cond"),
+	("ASCSTR_C", "STRTYPE_C"),
+	("ASCSTR_PASCAL", "STRTYPE_PASCAL"),
+	("ASCSTR_LEN2", "STRTYPE_LEN2"),
+	("ASCSTR_UNICODE", None),
+	("ASCSTR_LEN4", "STRTYPE_LEN4"),
+	("ASCSTR_ULEN2", None),
+	("ASCSTR_ULEN4", None),
+	("ASCSTR_LAST", None),
+	(None, "STRTYPE_C_16"),
+	(None, "STRTYPE_LEN2_16"),
+	(None, "STRTYPE_LEN4_16"),
+	("startEA","start_ea"),
+	("endEA","end_ea"),
+	(None, "get_fixup_target_flags")
+	# end of idc.py updates
         ]
     return new_old_apis
 

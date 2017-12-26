@@ -1,3 +1,24 @@
+import sys
+
+def rename_vars():
+    api_list = load_apis()
+    old_script = open(sys.argv[1], "r").read()
+    for item in api_list:
+        old_name, new_name = item
+        if old_name and new_name:
+            old_script = old_script.replace(old_name, new_name)
+    o = open(sys.argv[1] + ".new", "w")
+    o.write(old_script)
+    o.close()
+
+def create_table():
+    api_list = load_apis()
+    # generate table
+    print "| Old           | New           |"
+    print "| ------------- |:-------------:|"
+    for old, new in api_list:
+        print "| %s           | %s           |" % (old, new)
+
 def load_apis():
     new_old_apis = [
         # start of changes for idc.py
@@ -576,34 +597,32 @@ def load_apis():
         ("Comment", None),
         ("RptCmt", None),
         ("isEnabled", None),
-	# update 20171224
-	("AutoMark2","auto_mark_range"),
-	(None, "get_wide_byte"),
-	("", "calc_gtn_flags"),
-	("", "o_fpreg_arm"),
-	("", "o_cond"),
-	("ASCSTR_C", "STRTYPE_C"),
-	("ASCSTR_PASCAL", "STRTYPE_PASCAL"),
-	("ASCSTR_LEN2", "STRTYPE_LEN2"),
-	("ASCSTR_UNICODE", None),
-	("ASCSTR_LEN4", "STRTYPE_LEN4"),
-	("ASCSTR_ULEN2", None),
-	("ASCSTR_ULEN4", None),
-	("ASCSTR_LAST", None),
-	(None, "STRTYPE_C_16"),
-	(None, "STRTYPE_LEN2_16"),
-	(None, "STRTYPE_LEN4_16"),
-	("startEA","start_ea"),
-	("endEA","end_ea"),
-	(None, "get_fixup_target_flags")
-	# end of idc.py updates
+        # update 20171224
+        ("AutoMark2","auto_mark_range"),
+        (None, "get_wide_byte"),
+        (None, "calc_gtn_flags"),
+        (None, "o_fpreg_arm"),
+        (None, "o_cond"),
+        ("ASCSTR_C", "STRTYPE_C"),
+        ("ASCSTR_PASCAL", "STRTYPE_PASCAL"),
+        ("ASCSTR_LEN2", "STRTYPE_LEN2"),
+        ("ASCSTR_UNICODE", None),
+        ("ASCSTR_LEN4", "STRTYPE_LEN4"),
+        ("ASCSTR_ULEN2", None),
+        ("ASCSTR_ULEN4", None),
+        ("ASCSTR_LAST", None),
+        (None, "STRTYPE_C_16"),
+        (None, "STRTYPE_LEN2_16"),
+        (None, "STRTYPE_LEN4_16"),
+        ("startEA","start_ea"),
+        ("endEA","end_ea"),
+        (None, "get_fixup_target_flags")
+        # end of idc.py updates
         ]
     return new_old_apis
 
-api_list = load_apis()
-# generate table
-print "| Old           | New           |"
-print "| ------------- |:-------------:|"
-for old, new in api_list:
-    print "| %s           | %s           |" % (old, new)
-    
+if __name__=="__main__":
+    if len(sys.argv)  >= 2:
+        rename_vars()
+    else:
+        create_table()

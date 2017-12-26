@@ -11,33 +11,16 @@ As of now the list only contains diffs from `idc.py`.
 `None` indcate names that I was unable to classify automatically or quickly. Most of the changes appear to make idapython be more Pythonic in naming conventions. I have yet to upgrade to 7.0 but hoping this page will help others. 
 
 ## Contribute 
-The table was generated using the script `generate_table.py`. To add rows please append changes to the end of the list as `("old", "new")`. Thanks. 
+The table was generated using the script `ida6toidapy7.py`. To add rows please append changes to the end of the list as `("old", "new")`. Thanks. 
 
 ### Yolo IDAPython6 to IDAPython7
 
-The list in `generate_table.py` can be used to do a search and replace for a crude update from IDAPython6 to IDAPython7. The buckshot approach is probaby not the best approach but it has been reported to work. Once I have more of the old and new keyword changes I'll create a parser for recommending changes to old scripts.  
+The script `ida6toidapy7.py` can be used to search and replace API names from IDAPython6 to IDAPython7. The approach is crude but it has been reported to work. Once I do some more research I'll figure out a cleaner way to update the code. 
 
-```
-import sys 
-import os 
-
-def run():
-    api_list = load_apis()
-    old_script = open(sys.argv[1], "r").read()
-    for item in api_list:
-        old_name, new_name = item
-        if old_name and new_name:
-            old_script = old_script.replace(old_name, new_name)
-    o = open(sys.argv[1] + ".new", "w")
-    o.write(old_script)
-    o.close()
-    
-run() 
-```
 
 ## Old vs New
 
-| Old           | New IDAPython 7+     |
+| Old           | New           |
 | ------------- |:-------------:|
 | hasValue           | has_value           |
 | byteValue           | byte_value           |
@@ -104,7 +87,7 @@ run()
 | GetOperandValue           | get_operand_value           |
 | FindText           | find_text           |
 | FindBinary           | find_binary           |
-| \_invoke_idc_setprm           | \_invoke_idc_setprm           |
+| _invoke_idc_setprm           | _invoke_idc_setprm           |
 | SetProcessorType            | set_processor_type            |
 | SetTargetAssembler           | set_target_assembler           |
 | Batch           | batch           |
@@ -312,7 +295,7 @@ run()
 | CompileEx           | None           |
 | SaveBase           | save_database           |
 | ValidateNames           | validate_idb_names           |
-| Exec           | qexit           |
+| Exit           | qexit           |
 | Sleep           | qsleep           |
 | RunPlugin           | load_and_run_plugin           |
 | ApplySig           | plan_to_apply_idasgn           |
@@ -549,11 +532,11 @@ run()
 | GetProcessName           | None           |
 | GetThreadId           | None           |
 | GetCurrentThreadId           | None           |
-| GetEventBptHardwareEa           | None           |
-| GetEventExceptionCode           | None           |
-| GetEventExceptionEa           | None           |
+| GetEventBptHardwareEa           | get_event_bpt_hea           |
+| GetEventExceptionCode           | get_event_exc_code           |
+| GetEventExceptionEa           | get_event_exc_ea           |
 | CanExceptionContinue           | None           |
-| GetEventExceptionInfo           | None           |
+| GetEventExceptionInfo           | get_event_exc_info           |
 | GetDebuggerEventCondition           | None           |
 | SetDebuggerEventCondition           | set_debugger_event_cond           |
 | SetBptCndEx           | set_bpt_cond           |
@@ -614,3 +597,22 @@ run()
 | Comment           | None           |
 | RptCmt           | None           |
 | isEnabled           | None           |
+| AutoMark2           | auto_mark_range           |
+| None           | get_wide_byte           |
+| None           | calc_gtn_flags           |
+| None           | o_fpreg_arm           |
+| None           | o_cond           |
+| ASCSTR_C           | STRTYPE_C           |
+| ASCSTR_PASCAL           | STRTYPE_PASCAL           |
+| ASCSTR_LEN2           | STRTYPE_LEN2           |
+| ASCSTR_UNICODE           | None           |
+| ASCSTR_LEN4           | STRTYPE_LEN4           |
+| ASCSTR_ULEN2           | None           |
+| ASCSTR_ULEN4           | None           |
+| ASCSTR_LAST           | None           |
+| None           | STRTYPE_C_16           |
+| None           | STRTYPE_LEN2_16           |
+| None           | STRTYPE_LEN4_16           |
+| startEA           | start_ea           |
+| endEA           | end_ea           |
+| None           | get_fixup_target_flags           |

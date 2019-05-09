@@ -375,7 +375,7 @@ def load_apis():
         (None, "get_sreg"),
         ("ItemHead", "get_item_head"),
         ("ItemEnd", "get_item_end"),
-        ("ItemSize", "get_item_end"),
+        ("ItemSize", "get_item_size"),
         ("NameEx", "func_contains"),
         ("GetTrueNameEx", None),
         ("GetDisasmEx", "generate_disasm_line"),
